@@ -22,12 +22,15 @@
 {% block content %}
 <div class="container mx-auto ">
     <ul>
-        <li class="bg-purple-500 text-white py-3 px-2 shadow-2xl rounded">
-            <p>タイトル：</p>
-            <p>投稿者：</p>
+        {% for item in object_list %}
+        <li class="bg-purple-500 text-white py-3 px-2 shadow-2xl rounded mb-4">
+            <p>タイトル：{{ item.title }}</p>
+            <p>投稿者：{{ item.author }}</p>
             <a href=""></a>
             <a href=""></a>
         </li>
+        {% endfor %}
+        <a href="{% url 'logout' %}" class="bg-sky-500 text-white px-10 py-2 rounded mt-4 text-xl hover:opacity-70">ログアウト</a>
     </ul>
 </div>
 {% endblock content %}
