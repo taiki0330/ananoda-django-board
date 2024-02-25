@@ -1,0 +1,40 @@
+{% load static tailwind_tags %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    {% tailwind_css %}
+
+</head>
+
+<body>
+{% block header %}
+<div class="container mx-auto mt-10 py-5 border-b-2">
+    <h1 class="text-3xl font-semibold">SignUp!</h1>
+    <p class="mt-4">This is my amazing website</p>
+</div>
+{% endblock header %}
+
+
+{% block content %}
+<div class="container mx-auto">
+    <form action="" method="POST" class="mx-auto">{% csrf_token %}
+
+        {% if error %}
+        <p>{{ error }}</p>  <!-- エラーメッセージを表示するための修正 -->
+        {% endif %}
+
+        <label for="username" class="block mt-4">username</label>
+        <input type="text" name="username" id="username" class="block rounded">
+        <label for="password" class="block">password</label>
+        <input type="password" name="password" class="block rounded">
+        <button type="submit" class="bg-orange-400 text-white px-10 py-2 rounded mt-4 text-xl hover:opacity-70">登録</button>
+    </form>
+</div>
+{% endblock content %}
+
+</body>
+</html>
